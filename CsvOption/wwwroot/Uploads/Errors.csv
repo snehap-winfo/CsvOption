@@ -1,0 +1,20 @@
+errorCode,errorMessage,TransactionDate
+ERR001,error got handled,07-31-2025 16:09:53
+ERR002,Invalid Input,07-31-2025 16:09:53
+ERR003,Timeout Error,07-31-2025 16:09:53
+ERR004,File Not Found,07-31-2025 16:09:53
+ERR005,Permission Denied,07-31-2025 16:09:53
+ERR006,Network Error,07-31-2025 16:09:53
+ERR007,Authentication Failed,07-31-2025 16:09:53
+ERR008,Resource Busy,07-31-2025 16:09:53
+er111,no,07-31-2025 16:09:53
+,No message provided,07-31-2025 16:09:53
+ERR001,Database Connection Failed,07-31-2025 16:09:53
+ERR002,Invalid Input,07-31-2025 16:09:53
+ERR003,Timeout Error,07-31-2025 16:09:53
+ERR004,File Not Found,07-31-2025 16:09:53
+ERR005,Permission Denied,07-31-2025 16:09:53
+ERR006,Network Error,07-31-2025 16:09:53
+ERR007,Authentication Failed,07-31-2025 16:09:53
+ERR008,Resource Busy,07-31-2025 16:09:53
+er111,no,07-31-2025 16:09:53

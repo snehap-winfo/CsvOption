@@ -1,0 +1,9 @@
+errorCode,errorMessage,transactionDate
+ERR001,Database Connection Failed,09/25/2024 19:10:00
+ERR002,Invalid Input,09/26/2024 19:10:00
+ERR003,Timeout Error,09/27/2024 19:10:00
+ERR004,File Not Found,09/28/2024 19:10:00
+ERR005,Permission Denied,09/29/2024 19:10:00
+ERR006,Network Error,09/30/2024 19:10:00
+ERR007,Authentication Failed,10-01-2024 19:10
+ERR008,Resource Busy,10-02-2024 19:10

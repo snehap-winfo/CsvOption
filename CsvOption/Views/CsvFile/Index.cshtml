@@ -6,11 +6,45 @@
 @* <h1>Index</h1> *@
 
 
-<h2>Upload CSV File</h2>
-<form asp-controller="Home" asp-action="Upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
+<h2>Upload File</h2>
+<style>
+    .custom-file-upload {
+        display: inline-block;
+        padding: 8px 15px;
+        cursor: pointer;
+        background-color:grey;
+        color: white;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+
+        .custom-file-upload input[type="file"] {
+            display: none;
+        }
+</style>
+
+
+
+
+
+<form asp-controller="CsvFile" asp-action="Upload" method="post" enctype="multipart/form-data">
+    <label class="custom-file-upload">
+        <input type="file" name="file" id="fileInput" />Uploads
+    </label>
+    <span id="file-name">No file selected</span>
+    
     <button type="submit">Upload</button>
 </form>
+
+<script>
+    document.getElementById('fileInput').addEventListener('change', function () {
+        const fileName = this.files.length > 0 ? this.files[0].name : 'No file selected';
+        document.getElementById('file-name').textContent = fileName;
+    });
+</script>
+
+
 @if (ViewBag.Error != null)
 {
     <div style="color:red">@ViewBag.Error</div>
