@@ -1,0 +1,53 @@
+﻿@* @model CsvOption.Models.CsvRow
+@{
+    ViewData["Title"] = "Edit Row";
+    var fileName = ViewBag.FileName as string;
+    var rowIndex = ViewBag.RowIndex;
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="fileName" value="@fileName" />
+    <input type="hidden" name="id" value="@rowIndex" />
+
+    @foreach (var field in Model.Fields.Keys.ToList())
+    {
+        <div>
+            <label>@field</label>
+            <input type="text" name="updatedRow.Fields[@field]" value="@Model.Fields[field]" />
+        </div>
+    }
+
+    <button type="submit">Save</button>
+</form>
+
+ *@
+
+
+
+
+@model CsvOption.Models.CsvRow
+@{
+    ViewData["Title"] = "Edit Row";
+    var fileName = ViewBag.FileName as string;
+    var rowIndex = ViewBag.RowIndex;
+}
+
+<h2>Edit Row</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="fileName" value="@fileName" />
+    <input type="hidden" name="id" value="@rowIndex" />
+
+    @foreach (var field in Model.Fields.Keys.ToList())
+    {
+        <div>
+            <label>@field</label>
+            <input type="text" name="updatedRow.Fields[@field]" value="@Model.Fields[field]" />
+        </div>
+    }
+
+    <button type="submit">Save</button>
+</form>
+

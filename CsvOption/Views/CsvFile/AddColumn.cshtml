@@ -1,0 +1,153 @@
+﻿@* @model List<CsvOption.Models.CsvRow>
+@{
+    ViewData["Title"] = "AddColumn";
+    var fileName = ViewBag.FileName as string;
+}
+
+<h1>AddColumn</h1>
+<form method="post" asp-action="AddColumn" asp-route-fileName="@fileName">
+    <div>
+        <label>Column Name:</label>
+        <input type="text" name="newColumnName" required />
+    </div>
+    <h4>Enter values for each row:</h4>
+    @if (Model != null && Model.Any())
+    {
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Row #</th>
+                @foreach (var header in Model.First().Fields.Keys)
+                {
+                    <th>@header</th>
+                }
+                <th>New Column Value</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    @foreach (var val in Model[i].Fields.Values)
+                    {
+                        <td>@val</td>
+                    }
+                    <td>
+                        <input type="text" name="columnValues[@i]" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <button type="submit" class="btn btn-primary">Add Column</button>
+        <a asp-action="Index" asp-route-fileName="@fileName" class="btn btn-secondary">Cancel</a>
+
+    </table>
+    }
+
+
+
+</form>
+
+ *@
+
+
+
+@* @model List<CsvOption.Models.CsvRow>
+@{
+    ViewData["Title"] = "Add Column";
+    var fileName = ViewBag.FileName as string;
+}
+
+<h1>Add New Column</h1>
+
+<form method="post" asp-action="AddColumn" asp-route-fileName="@fileName">
+    <div>
+        <label>Column Name:</label>
+        <input type="text" name="newColumnName" required />
+    </div>
+
+    <h4>Enter values for each row:</h4>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Row #</th>
+                @foreach (var header in Model.First().Fields.Keys)
+                {
+                    <th>@header</th>
+                }
+                <th>New Column Value</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    @foreach (var val in Model[i].Fields.Values)
+                    {
+                        <td>@val</td>
+                    }
+                    <td>
+                        <input type="text" name="columnValues[@i]" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Add Column</button>
+    <a asp-action="Table" asp-route-fileName="@fileName" class="btn btn-secondary">Cancel</a>
+</form> *@
+
+
+
+@model List<CsvOption.Models.CsvRow>
+@{
+    ViewData["Title"] = "Add Column";
+    var fileName = ViewBag.FileName as string;
+}
+
+<h1>Add Column</h1>
+
+<form method="post" asp-action="AddColumn" asp-route-fileName="@fileName">
+    <div>
+        <label>Column Name:</label>
+        <input type="text" name="newColumnName" required />
+    </div>
+
+    <h4>Enter values for each row:</h4>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Row #</th>
+                @foreach (var header in Model.First().Fields.Keys)
+                {
+                    <th>@header</th>
+                }
+                <th>New Column Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    @foreach (var val in Model[i].Fields.Values)
+                    {
+                        <td>@val</td>
+                    }
+                    <td>
+                        <input type="text" name="columnValues[@i]" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Add Column</button>
+    <a asp-action="Table" asp-route-fileName="@fileName" class="btn btn-secondary">Cancel</a>
+</form>
+

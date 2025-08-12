@@ -3,16 +3,16 @@
     ViewData["Title"] = "Index";
 }
 
-@* <h1>Index</h1> *@
 
 
-<h2>Upload File</h2>
+
+
 <style>
     .custom-file-upload {
         display: inline-block;
         padding: 8px 15px;
         cursor: pointer;
-        background-color:grey;
+        background-color: grey;
         color: white;
         border-radius: 5px;
         font-family: Arial, sans-serif;
@@ -27,15 +27,24 @@
 
 
 
+<div class="d-flex flex-column justify-content-center align-items-center">
 
-<form asp-controller="CsvFile" asp-action="Upload" method="post" enctype="multipart/form-data">
-    <label class="custom-file-upload">
-        <input type="file" name="file" id="fileInput" />Uploads
-    </label>
-    <span id="file-name">No file selected</span>
-    
-    <button type="submit">Upload</button>
-</form>
+    <h2>Upload File</h2>
+
+    <form asp-controller="CsvFile" asp-action="Upload" method="post" enctype="multipart/form-data" class="text-center p-5">
+        <label class="custom-file-upload btn btn-outline-primary">
+            <input type="file" name="file" id="fileInput"  />Choose a File
+        </label>
+        <div id="file-name">No file selected</div>
+        
+        <button type="submit" class="btn btn-outline-primary">Upload</button>
+    </form>
+</div>
+
+
+
+
+
 
 <script>
     document.getElementById('fileInput').addEventListener('change', function () {

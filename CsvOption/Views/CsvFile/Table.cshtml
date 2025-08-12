@@ -1,40 +1,56 @@
-﻿@model IEnumerable<CsvOption.Models.CsvRow>
-@using System.Linq
+﻿@model List<CsvOption.Models.CsvRow>
 @{
     ViewData["Title"] = "Table";
+    var fileName = ViewBag.FileName as string;
 }
 
 <h1 align="center">Table</h1>
 
+<div>
+    <a asp-action="DownloadAsPdf" asp-route-fileName="@ViewBag.FileName" class="btn btn-outline-info ">
+        Download PDF
+    </a>
 
-@if ((Model?.Count() ?? 0) > 0)
+    <a asp-action="DownloadAsExcel" asp-route-fileName="@ViewBag.FileName" class="btn btn-outline-info">
+        Download Excel
+    </a>
+</div>
+<br/>
+
+@if (Model?.Count > 0)
 {
-    <table align="center" border="1">
-
+    <div style="display: flex; align-items: flex-start;">
+    <table align="center" border="1" class="table">
         <thead>
-           @foreach(var header in Model.First().Fields.Keys)
-
+            @foreach (var header in Model.First().Fields.Keys)
             {
                 <th>@header</th>
             }
-
+            <th>Actions</th>
+       
         </thead>
 
-    <tbody>
-        @foreach(var row in Model)
-        {
-            <tr>
-                @foreach(var value in row.Fields.Values)
-                {
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    @foreach (var value in Model[i].Fields.Values)
+                    {
                         <td>@value</td>
-                }
-            </tr>
-        }
-
-
-    </tbody>
-
-</table>
+                    }
+                    <td>
+                        <a asp-action="Edit"
+                           asp-route-fileName="@ViewBag.FileName"
+                           asp-route-id="@i">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div style="text-align:center; margin-bottom:15px;">
+        <a asp-action="AddColumn" asp-route-fileName="@fileName" class="btn btn-success">Add Column</a>
+    </div>
+    </div>
 }
-
-
