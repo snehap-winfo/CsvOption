@@ -288,10 +288,6 @@ namespace CsvOption.Controllers
 
                 return File(stream.ToArray(), "application/pdf", Path.GetFileNameWithoutExtension(fileName) + ".pdf");
             }
-
-           
-
-
         }
 
 
